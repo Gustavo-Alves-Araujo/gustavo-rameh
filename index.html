@@ -1,17 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gustavo Rameh - Psicólogo Clínico e Coach</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Gustavo Rameh - Psicólogo Clínico e Coach | Terapia Online e Presencial</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Psicólogo clínico e coach Gustavo Rameh oferece terapia individual, casal, grupo e coaching. Atendimento online e presencial. Agende sua consulta via WhatsApp.">
+    <meta name="keywords" content="psicólogo, psicologia clínica, terapia, psicoterapia, coaching, terapia de casal, terapia em grupo, atendimento online, psicólogo online, bem-estar mental, saúde mental, Gustavo Rameh">
+    <meta name="author" content="Gustavo Rameh">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Portuguese">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gustavorameh.com.br/">
+    <meta property="og:title" content="Gustavo Rameh - Psicólogo Clínico e Coach">
+    <meta property="og:description" content="Psicólogo clínico e coach oferecendo terapia individual, casal, grupo e coaching. Atendimento online e presencial. Agende sua consulta.">
+    <meta property="og:image" content="https://gustavorameh.com.br/img/gustavo.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Gustavo Rameh - Psicólogo">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://gustavorameh.com.br/">
+    <meta name="twitter:title" content="Gustavo Rameh - Psicólogo Clínico e Coach">
+    <meta name="twitter:description" content="Psicólogo clínico e coach oferecendo terapia individual, casal, grupo e coaching. Atendimento online e presencial.">
+    <meta name="twitter:image" content="https://gustavorameh.com.br/img/gustavo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://gustavorameh.com.br/">
+    
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="https://gustavorameh.com.br/sitemap.xml">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="apple-touch-icon" href="img/logo.png">
+    
+    <!-- Preconnect para recursos externos -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://plus.unsplash.com">
+    
+    <!-- CSS e Fontes com font-display: swap -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+            rel="stylesheet">
+    </noscript>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+    
+    <!-- Tailwind CSS será carregado de forma assíncrona -->
     <script>
+        // Carregar Tailwind de forma assíncrona
+        (function() {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.tailwindcss.com';
+            script.defer = true;
+            document.head.appendChild(script);
+        })();
+        
         tailwind.config = {
             theme: {
                 extend: {
@@ -49,7 +112,7 @@
         <div class="container mx-auto px-4 md:px-6 lg:px-8">
             <div class="flex justify-between items-center py-3 md:py-4">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <img src="img/logo.png" alt="Gustavo Rameh" class="h-10 md:h-12 lg:h-14 transition-transform group-hover:scale-105">
+                    <img src="img/logo.png" alt="Logo Gustavo Rameh - Psicólogo Clínico e Coach" class="h-10 md:h-12 lg:h-14 transition-transform group-hover:scale-105" width="56" height="56" decoding="async">
                 </a>
 
                 <!-- Desktop Navigation -->
@@ -148,6 +211,7 @@
         </div>
     </header>
 
+    <main>
     <section class="pt-24 md:pt-32 pb-16 md:pb-20 lg:pt-40 lg:pb-32 bg-gradient-to-b from-blue-50 via-white to-white relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(30,58,138,0.1),transparent_50%)]"></div>
         <div class="container mx-auto px-4 md:px-6 lg:px-12 relative z-10">
@@ -183,8 +247,12 @@
 
                     <div class="relative z-10 animate-fade-in">
                         <img src="img/gustavo.png"
-                            alt="Psicólogo Gustavo Rameh"
-                            class="rounded-3xl shadow-2xl object-cover h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] w-full">
+                            alt="Gustavo Rameh - Psicólogo Clínico e Coach especializado em terapia e bem-estar mental"
+                            class="rounded-3xl shadow-2xl object-cover h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] w-full"
+                            fetchpriority="high"
+                            decoding="async"
+                            width="568"
+                            height="568">
                     </div>
                 </div>
             </div>
@@ -197,7 +265,7 @@
             <div class="lg:w-1/2 relative w-full">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
-                    <img src="img/gustavo2.png" alt="Gustavo Rameh Psicólogo" class="relative rounded-3xl shadow-2xl object-cover w-full h-[400px] sm:h-[500px] lg:h-[600px]">
+                    <img src="img/gustavo2.png" alt="Gustavo Rameh - Psicólogo com mais de 10 anos de experiência em psicologia clínica e coaching" class="relative rounded-3xl shadow-2xl object-cover w-full h-[400px] sm:h-[500px] lg:h-[600px]" loading="lazy" decoding="async" width="600" height="800">
 
                     <div class="absolute bottom-4 left-4 md:bottom-8 md:left-8 bg-white p-4 md:p-6 rounded-2xl shadow-xl animate-bounce-slow">
                         <span class="block text-3xl md:text-4xl lg:text-5xl font-extrabold text-secondary">10+</span>
@@ -208,7 +276,7 @@
 
             <div class="lg:w-1/2 space-y-6 md:space-y-8">
                 <div>
-                    <span class="inline-block text-secondary font-bold tracking-wider uppercase text-xs md:text-sm mb-3 md:mb-4 px-4 py-1 bg-orange-50 rounded-full">Quem sou eu?</span>
+                    <span class="inline-block text-orange-700 font-bold tracking-wider uppercase text-xs md:text-sm mb-3 md:mb-4 px-4 py-1 bg-orange-50 rounded-full">Quem sou eu?</span>
                     <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-primary leading-tight mt-4">
                         Conheça mais sobre mim e minha abordagem
                     </h2>
@@ -225,7 +293,7 @@
                     atendimento de adultos e adolescentes.
                 </p>
                 <div class="pt-2 md:pt-4">
-                    <a href="sobre/" class="inline-flex items-center text-secondary font-bold hover:gap-2 transition-all group">
+                    <a href="sobre/" class="inline-flex items-center text-orange-700 font-bold hover:gap-2 transition-all group">
                         <span>Saiba mais sobre mim</span>
                         <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                     </a>
@@ -255,7 +323,7 @@
                             <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
                             <span>Agendar Consulta</span>
                         </a>
-                        <a href="sobre/" class="inline-flex items-center justify-center text-secondary font-bold hover:gap-2 transition-all group border-2 border-secondary hover:bg-secondary hover:text-white py-3 px-6 rounded-full">
+                        <a href="sobre/" class="inline-flex items-center justify-center text-orange-700 font-bold hover:gap-2 transition-all group border-2 border-orange-700 hover:bg-orange-700 hover:text-white py-3 px-6 rounded-full">
                             <span>Saiba mais sobre minha abordagem</span>
                             <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -306,7 +374,7 @@
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-blue-50/30 to-transparent"></div>
         <div class="container mx-auto px-4 md:px-6 lg:px-12 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-10 md:mb-12 lg:mb-16">
-                <span class="inline-block text-secondary font-bold tracking-wider uppercase text-xs md:text-sm mb-3 md:mb-4 px-4 py-1 bg-orange-50 rounded-full">O que ofereço</span>
+                <span class="inline-block text-orange-700 font-bold tracking-wider uppercase text-xs md:text-sm mb-3 md:mb-4 px-4 py-1 bg-orange-50 rounded-full">O que ofereço</span>
                 <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-primary mt-4">Cuidando da Sua Saúde Mental com
                     Dedicação</h2>
             </div>
@@ -377,8 +445,15 @@
                 <div class="lg:w-1/2 w-full order-2 lg:order-1">
                     <div class="relative group">
                         <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
-                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1099&q=80"
-                            alt="Paz mental e equilíbrio" class="relative rounded-3xl shadow-2xl object-cover h-[400px] sm:h-[500px] lg:h-[600px] w-full">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=560&q=75"
+                            alt="Pessoa em meditação representando paz mental, equilíbrio emocional e bem-estar psicológico" 
+                            class="relative rounded-3xl shadow-2xl object-cover h-[400px] sm:h-[500px] lg:h-[600px] w-full"
+                            loading="lazy"
+                            decoding="async"
+                            width="560"
+                            height="651"
+                            srcset="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=75 400w, https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=560&q=75 560w, https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=75 800w"
+                            sizes="(max-width: 640px) 400px, (max-width: 1024px) 560px, 800px">
                     </div>
                 </div>
 
@@ -451,10 +526,14 @@
                         <i class="fas fa-quote-left text-4xl text-blue-200"></i>
                     </div>
                     <div class="flex items-center gap-4 mb-6">
-                        <img src="img/image.png" alt="Foto Cliente Lucas Nascimento"
-                            class="w-14 h-14 rounded-full object-cover">
+                        <img src="img/image.png" alt="Lucas Nascimento - Cliente satisfeito com terapia psicológica do Gustavo Rameh"
+                            class="w-14 h-14 rounded-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                            width="56"
+                            height="56">
                         <div>
-                            <h4 class="font-bold text-primary">Lucas Nascimento</h4>
+                            <p class="font-bold text-primary">Lucas Nascimento</p>
                             <div class="flex text-yellow-400 text-sm">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -470,10 +549,14 @@
                         <i class="fas fa-quote-left text-4xl text-orange-200"></i>
                     </div>
                     <div class="flex items-center gap-4 mb-6">
-                        <img src="img/image copy.png" alt="Foto Cliente Rafael Costa"
-                            class="w-14 h-14 rounded-full object-cover">
+                        <img src="img/image copy.png" alt="Rafael Costa - Cliente que recomenda os serviços de psicoterapia do Gustavo Rameh"
+                            class="w-14 h-14 rounded-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                            width="56"
+                            height="56">
                         <div>
-                            <h4 class="font-bold text-primary">Rafael Costa</h4>
+                            <p class="font-bold text-primary">Rafael Costa</p>
                             <div class="flex text-yellow-400 text-sm">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -485,8 +568,15 @@
                 </div>
 
                 <div class="hidden lg:block relative h-full min-h-[400px]">
-                    <img src="https://plus.unsplash.com/premium_photo-1672292536199-7a4cf2b78318?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Cliente satisfeita" class="rounded-3xl shadow-xl object-cover h-full w-full">
+                    <img src="https://plus.unsplash.com/premium_photo-1672292536199-7a4cf2b78318?q=75&w=373&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Mulher sorrindo representando cliente satisfeita com atendimento psicológico e bem-estar mental alcançado" 
+                        class="rounded-3xl shadow-xl object-cover h-full w-full"
+                        loading="lazy"
+                        decoding="async"
+                        width="373"
+                        height="560"
+                        srcset="https://plus.unsplash.com/premium_photo-1672292536199-7a4cf2b78318?q=75&w=300&auto=format&fit=crop 300w, https://plus.unsplash.com/premium_photo-1672292536199-7a4cf2b78318?q=75&w=373&auto=format&fit=crop 373w, https://plus.unsplash.com/premium_photo-1672292536199-7a4cf2b78318?q=75&w=500&auto=format&fit=crop 500w"
+                        sizes="(max-width: 640px) 300px, 373px, 500px">
                 </div>
             </div>
 
@@ -726,13 +816,14 @@
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="bg-primary text-blue-100 pt-12 md:pt-16 lg:pt-20 pb-8 md:pb-10">
         <div class="container mx-auto px-4 md:px-6 lg:px-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 mb-10 md:mb-12 lg:mb-16">
                 <div class="space-y-6">
                     <a href="index.html" class="flex items-center gap-3 mb-6">
-                        <img src="img/logo.png" alt="Gustavo Rameh" class="h-12 md:h-14">
+                        <img src="img/logo.png" alt="Logo Gustavo Rameh - Psicólogo Clínico" class="h-12 md:h-14" width="56" height="56" decoding="async" loading="lazy">
                     </a>
                     <p class="text-blue-200 pr-6">Comprometido com seu bem-estar mental, oferecendo um espaço seguro e
                         acolhedor para sua jornada de autoconhecimento.</p>
@@ -911,6 +1002,61 @@
             }
         }
     </style>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gustavo Rameh",
+        "jobTitle": "Psicólogo Clínico e Coach",
+        "description": "Psicólogo clínico e coach especializado em terapia individual, casal, grupo e coaching. Atendimento online e presencial.",
+        "url": "https://gustavorameh.com.br",
+        "image": "https://gustavorameh.com.br/img/gustavo.png",
+        "sameAs": [
+            "https://www.instagram.com/gustavoramehpsi/",
+            "https://www.facebook.com/psicologogustavorameh"
+        ],
+        "knowsAbout": [
+            "Psicologia Clínica",
+            "Psicoterapia",
+            "Coaching",
+            "Terapia de Casal",
+            "Terapia em Grupo",
+            "Atendimento Online"
+        ],
+        "telephone": "+5532988178494",
+        "email": "contato@gustavorameh.com.br"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Gustavo Rameh - Psicólogo Clínico",
+        "description": "Serviços de psicologia clínica, psicoterapia e coaching. Atendimento individual, casal, grupo e online.",
+        "url": "https://gustavorameh.com.br",
+        "image": "https://gustavorameh.com.br/img/logo.png",
+        "telephone": "+5532988178494",
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "BR"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Brasil"
+        },
+        "serviceType": [
+            "Psicoterapia Individual",
+            "Terapia de Casal",
+            "Terapia em Grupo",
+            "Coaching",
+            "Atendimento Online"
+        ]
+    }
+    </script>
 </body>
 
 </html>

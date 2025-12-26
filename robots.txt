@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://gustavorameh.com.br/sitemap.xml
+
+# Bloquear acesso a arquivos desnecessários
+Disallow: /img/
+Allow: /img/*.png
+Allow: /img/*.jpg
+Allow: /img/*.jpeg
+Allow: /img/*.gif
+Allow: /img/*.svg
+
