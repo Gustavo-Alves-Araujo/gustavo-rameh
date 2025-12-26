@@ -65,22 +65,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
     
-    <!-- Tailwind CSS será carregado de forma assíncrona -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Carregar Tailwind de forma assíncrona
-        (function() {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.tailwindcss.com';
-            script.defer = true;
-            document.head.appendChild(script);
-        })();
-        
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         primary: '#1e3a8a', // Azul escuro da marca
-                        secondary: '#f97316', // Laranja da marca
+                        secondary: '#c2500a', // Laranja da marca
                         lightbg: '#f3f4f6', // Cinza muito claro para fundos
                     },
                     fontFamily: {
@@ -102,6 +94,17 @@
             -webkit-background-clip: text;
             color: transparent;
             background-image: linear-gradient(to right, #1e3a8a, #f97316);
+        }
+        
+        /* Melhorar contraste de acessibilidade para textos com text-secondary */
+        .text-secondary {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Melhorar contraste em badges com fundo claro */
+        .bg-orange-50 .text-secondary {
+            text-shadow: 0 1px 3px rgba(249, 115, 22, 0.3);
+            font-weight: 700;
         }
     </style>
 </head>
@@ -276,7 +279,7 @@
 
             <div class="lg:w-1/2 space-y-6 md:space-y-8">
                 <div>
-                    <span class="inline-block text-orange-700 font-bold tracking-wider uppercase text-xs md:text-sm mb-3 md:mb-4 px-4 py-1 bg-orange-50 rounded-full">Quem sou eu?</span>
+                    <span class="inline-block text-secondary font-bold tracking-wider uppercase text-xs md:text-sm mb-3 md:mb-4 px-4 py-1 bg-orange-50 rounded-full">Quem sou eu?</span>
                     <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-primary leading-tight mt-4">
                         Conheça mais sobre mim e minha abordagem
                     </h2>
@@ -293,7 +296,7 @@
                     atendimento de adultos e adolescentes.
                 </p>
                 <div class="pt-2 md:pt-4">
-                    <a href="sobre/" class="inline-flex items-center text-orange-700 font-bold hover:gap-2 transition-all group">
+                    <a href="sobre/" class="inline-flex items-center text-secondary font-bold hover:gap-2 transition-all group">
                         <span>Saiba mais sobre mim</span>
                         <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                     </a>
@@ -323,7 +326,7 @@
                             <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
                             <span>Agendar Consulta</span>
                         </a>
-                        <a href="sobre/" class="inline-flex items-center justify-center text-orange-700 font-bold hover:gap-2 transition-all group border-2 border-orange-700 hover:bg-orange-700 hover:text-white py-3 px-6 rounded-full">
+                        <a href="sobre/" class="inline-flex items-center justify-center text-secondary font-bold hover:gap-2 transition-all group border-2 border-secondary hover:bg-secondary hover:text-white py-3 px-6 rounded-full">
                             <span>Saiba mais sobre minha abordagem</span>
                             <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -374,7 +377,7 @@
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-blue-50/30 to-transparent"></div>
         <div class="container mx-auto px-4 md:px-6 lg:px-12 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-10 md:mb-12 lg:mb-16">
-                <span class="inline-block text-orange-700 font-bold tracking-wider uppercase text-xs md:text-sm mb-3 md:mb-4 px-4 py-1 bg-orange-50 rounded-full">O que ofereço</span>
+                <span class="inline-block text-secondary font-bold tracking-wider uppercase text-xs md:text-sm mb-3 md:mb-4 px-4 py-1 bg-orange-50 rounded-full">O que ofereço</span>
                 <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-primary mt-4">Cuidando da Sua Saúde Mental com
                     Dedicação</h2>
             </div>
