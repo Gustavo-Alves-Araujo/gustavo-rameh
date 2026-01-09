@@ -1129,7 +1129,7 @@
         // Função para fazer chamada direta à API (fallback)
         async function fetchBlogsDirectly(limit = 6, offset = 0) {
             try {
-                const apiUrl = 'https://blog-admin.axolutions.com.br';
+                const apiUrl = 'https://blog-admin.axolutions.com.br/api/public';
                 const url = `${apiUrl}/blogs?limit=${limit}&offset=${offset}&published=true&external_id=gustavorameh`;
 
                 console.log('Fazendo chamada direta à API:', url);
@@ -1197,7 +1197,7 @@
                     if (!useFallback && typeof BlogSDK !== 'undefined') {
                         // Criar cliente do Blog SDK
                         blogClient = new BlogSDK({
-                            apiUrl: 'https://blog-admin.axolutions.com.br',
+                            apiUrl: 'https://blog-admin.axolutions.com.br/api/public',
                             externalId: 'gustavorameh',
                             cache: true
                         });
@@ -1413,7 +1413,7 @@
 
                                 // Tratar erro de CORS especificamente
                                 if (isCORSError(error) || (error.isCORS && error.isLocalhost)) {
-                                    errorTitle = 'Erro de CORS (Cross-Origin)';
+                                    errorTitle = 'Blog Temporariamente Indisponível';
                                     if (isLocalhost()) {
                                         errorMessage = `
                                             <p class="text-gray-600 mb-3">A seção do blog não pode ser carregada em ambiente local devido a restrições de CORS.</p>
@@ -1430,8 +1430,13 @@
                                         `;
                                     } else {
                                         errorMessage = `
-                                            <p class="text-gray-600 mb-2">A API do blog não está permitindo requisições deste domínio.</p>
-                                            <p class="text-gray-500 text-sm">Verifique as configurações de CORS no servidor da API.</p>
+                                            <p class="text-gray-600 mb-2">Estamos trabalhando para disponibilizar o conteúdo do blog em breve.</p>
+                                            <p class="text-gray-500 text-sm mb-4">Enquanto isso, entre em contato para saber mais sobre saúde mental e bem-estar.</p>
+                                            <a href="https://wa.me/5532988178494" target="_blank"
+                                                class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-secondary to-orange-600 hover:from-orange-600 hover:to-secondary text-white font-semibold py-3 px-6 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-orange-200/50 group text-sm mt-3">
+                                                <i class="fab fa-whatsapp group-hover:scale-110 transition-transform"></i>
+                                                <span>Entre em Contato</span>
+                                            </a>
                                         `;
                                     }
                                 } else {
