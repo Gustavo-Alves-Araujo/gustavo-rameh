@@ -809,6 +809,41 @@
             </div>
         </div>
     </section>
+
+    <section id="blog" class="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden">
+        <div class="container mx-auto px-4 md:px-6 lg:px-12 relative z-10 max-w-7xl">
+            <div class="text-center mb-10 md:mb-12">
+                <span class="inline-block text-secondary font-bold tracking-wider uppercase text-xs md:text-sm mb-3 md:mb-4 px-4 py-1.5 bg-orange-50 rounded-full">Blog</span>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-primary mt-4">Artigos e Conteúdos sobre Saúde Mental</h2>
+                <p class="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mt-4">
+                    Compartilho conhecimentos e insights sobre psicologia, bem-estar mental e desenvolvimento pessoal.
+                </p>
+            </div>
+
+            <!-- Container dos posts do blog -->
+            <div id="blog-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Posts serão carregados aqui via JavaScript -->
+                <div class="col-span-full text-center py-8">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                    <p class="text-gray-600 mt-4">Carregando artigos...</p>
+                </div>
+            </div>
+
+            <!-- Mensagem quando não houver posts -->
+            <div id="blog-empty" class="hidden text-center py-12">
+                <i class="fas fa-book-open text-4xl text-gray-300 mb-4"></i>
+                <p class="text-gray-600 text-lg">Nenhum artigo disponível no momento.</p>
+            </div>
+
+            <!-- Botão ver mais (se houver mais posts) -->
+            <div id="blog-load-more" class="hidden text-center mt-10">
+                <button id="load-more-btn" class="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 rounded-full transition-all">
+                    <span>Carregar Mais Artigos</span>
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
     </main>
 
     <footer class="bg-primary text-blue-100 pt-12 md:pt-16 lg:pt-20 pb-8 md:pb-10">
@@ -994,6 +1029,23 @@
                 transform: scale(1.1);
             }
         }
+
+        /* Blog line clamp utilities */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     </style>
     
     <!-- Schema.org Structured Data -->
@@ -1050,6 +1102,393 @@
         ]
     }
     </script>
+
+    <!-- Blog SDK -->
+    <!-- ATENÇÃO: Atualize a URL abaixo com a URL correta do Blog SDK da plataforma -->
+    <script src="https://axo-psychologist.vercel.app/blog-sdk.js" onerror="console.error('Erro ao carregar Blog SDK')"></script>
+    
+    <!-- Blog Script -->
+    <script>
+        // Verificar se está em localhost
+        function isLocalhost() {
+            const hostname = window.location.hostname;
+            return hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '0.0.0.0' || hostname === '';
+        }
+
+        // Verificar se é erro de CORS
+        function isCORSError(error) {
+            return error.message && (
+                error.message.includes('CORS') ||
+                error.message.includes('cross-origin') ||
+                error.message.includes('NetworkError') ||
+                error.statusCode === 0 ||
+                error.name === 'TypeError'
+            );
+        }
+
+        // Função para fazer chamada direta à API (fallback)
+        async function fetchBlogsDirectly(limit = 6, offset = 0) {
+            try {
+                const apiUrl = 'https://blog-api.axolutions.com.br';
+                const url = `${apiUrl}/blogs?limit=${limit}&offset=${offset}&published=true&externalId=gustavorameh`;
+                
+                console.log('Fazendo chamada direta à API:', url);
+                
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                    },
+                    mode: 'cors'
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Resposta direta da API:', data);
+                return data;
+            } catch (error) {
+                console.error('Erro na chamada direta à API:', error);
+                
+                // Se for erro de CORS e estiver em localhost, mostrar mensagem específica
+                if (isCORSError(error) && isLocalhost()) {
+                    const corsError = new Error('CORS_ERROR_LOCALHOST');
+                    corsError.isCORS = true;
+                    corsError.isLocalhost = true;
+                    throw corsError;
+                }
+                
+                throw error;
+            }
+        }
+
+        // Função para aguardar o carregamento do SDK
+        function waitForBlogSDK(callback, maxAttempts = 50) {
+            let attempts = 0;
+            const checkSDK = setInterval(() => {
+                attempts++;
+                if (typeof BlogSDK !== 'undefined') {
+                    clearInterval(checkSDK);
+                    console.log('BlogSDK carregado com sucesso');
+                    callback();
+                } else if (attempts >= maxAttempts) {
+                    clearInterval(checkSDK);
+                    console.warn('BlogSDK não foi carregado. Tentando usar API direta como fallback...');
+                    // Tentar usar API direta como fallback
+                    callback(true); // Passa true para indicar que é fallback
+                }
+            }, 100);
+        }
+
+        // Inicializar Blog SDK quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar se está em localhost e mostrar aviso
+            if (isLocalhost()) {
+                console.warn('⚠️ Ambiente local detectado. A API do blog pode não funcionar devido a CORS.');
+                console.warn('O blog funcionará corretamente quando publicado no domínio de produção.');
+            }
+            
+            waitForBlogSDK(function(useFallback = false) {
+                try {
+                    let blogClient = null;
+                    
+                    if (!useFallback && typeof BlogSDK !== 'undefined') {
+                        // Criar cliente do Blog SDK
+                        blogClient = new BlogSDK({
+                            apiUrl: 'https://blog-api.axolutions.com.br',
+                            externalId: 'gustavorameh',
+                            cache: true
+                        });
+                        console.log('Blog Client criado:', blogClient);
+                    } else {
+                        console.log('Usando API direta (fallback)');
+                    }
+
+                    let currentOffset = 0;
+                    const limit = 6;
+                    let hasMore = true;
+
+                    const blogContainer = document.getElementById('blog-posts-container');
+                    const blogEmpty = document.getElementById('blog-empty');
+                    const blogLoadMore = document.getElementById('blog-load-more');
+                    const loadMoreBtn = document.getElementById('load-more-btn');
+
+                    // Funções auxiliares com fallback
+                    function formatDate(dateString) {
+                        if (typeof BlogSDKUtils !== 'undefined' && BlogSDKUtils.formatDate) {
+                            return BlogSDKUtils.formatDate(dateString);
+                        }
+                        // Fallback simples
+                        try {
+                            const date = new Date(dateString);
+                            return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+                        } catch (e) {
+                            return dateString;
+                        }
+                    }
+
+                    function calculateReadTime(content) {
+                        if (typeof BlogSDKUtils !== 'undefined' && BlogSDKUtils.calculateReadTime) {
+                            return BlogSDKUtils.calculateReadTime(content);
+                        }
+                        // Fallback: ~200 palavras por minuto
+                        const words = content ? content.split(/\s+/).length : 0;
+                        const minutes = Math.ceil(words / 200);
+                        return `${minutes} min de leitura`;
+                    }
+
+                    function extractExcerpt(content, maxLength) {
+                        if (typeof BlogSDKUtils !== 'undefined' && BlogSDKUtils.extractExcerpt) {
+                            return BlogSDKUtils.extractExcerpt(content, maxLength);
+                        }
+                        // Fallback simples
+                        if (!content) return '';
+                        const text = content.replace(/[#*\[\]()]/g, '').trim();
+                        return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+                    }
+
+                    function getCoverImage(post, fallback) {
+                        if (typeof BlogSDKUtils !== 'undefined' && BlogSDKUtils.getCoverImage) {
+                            return BlogSDKUtils.getCoverImage(post, fallback);
+                        }
+                        return post.cover_image || fallback;
+                    }
+
+                    function getPostUrl(post, baseUrl) {
+                        if (typeof BlogSDKUtils !== 'undefined' && BlogSDKUtils.getPostUrl) {
+                            return BlogSDKUtils.getPostUrl(post, baseUrl);
+                        }
+                        return `${baseUrl}/${post.slug || post.id}`;
+                    }
+
+                    // Função para renderizar um post
+                    function renderPost(post) {
+                        const coverImage = getCoverImage(post, 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80');
+                        const formattedDate = formatDate(post.created_at);
+                        const readTime = calculateReadTime(post.content);
+                        const excerpt = post.excerpt || extractExcerpt(post.content, 120);
+                        const postUrl = getPostUrl(post, '/blog');
+
+                return `
+                    <article class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group hover:-translate-y-1">
+                        <a href="${postUrl}" class="block">
+                            <div class="relative overflow-hidden h-48 bg-gray-200">
+                                <img src="${coverImage}" 
+                                     alt="${post.title}" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                     loading="lazy"
+                                     decoding="async">
+                                ${post.featured ? `
+                                <div class="absolute top-4 right-4 bg-gradient-to-r from-secondary to-orange-600 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                                    Destaque
+                                </div>
+                                ` : ''}
+                            </div>
+                            <div class="p-6">
+                                ${post.category ? `
+                                <span class="inline-block text-xs font-semibold text-secondary mb-2 px-3 py-1 bg-orange-50 rounded-full">
+                                    ${post.category}
+                                </span>
+                                ` : ''}
+                                <h3 class="font-heading text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors line-clamp-2">
+                                    ${post.title}
+                                </h3>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                                    ${excerpt}
+                                </p>
+                                <div class="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-gray-100">
+                                    <span class="flex items-center gap-1">
+                                        <i class="far fa-calendar"></i>
+                                        ${formattedDate}
+                                    </span>
+                                    <span class="flex items-center gap-1">
+                                        <i class="far fa-clock"></i>
+                                        ${readTime}
+                                    </span>
+                                </div>
+                                <div class="mt-4 pt-4 border-t border-gray-100">
+                                    <span class="inline-flex items-center text-secondary font-semibold text-sm group-hover:gap-2 transition-all">
+                                        <span>Ler mais</span>
+                                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                `;
+            }
+
+                    // Função para carregar posts
+                    async function loadPosts(reset = false) {
+                        try {
+                            if (reset) {
+                                currentOffset = 0;
+                                if (blogContainer) {
+                                    blogContainer.innerHTML = `
+                                        <div class="col-span-full text-center py-8">
+                                            <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                                            <p class="text-gray-600 mt-4">Carregando artigos...</p>
+                                        </div>
+                                    `;
+                                }
+                            }
+
+                            console.log('Buscando posts com:', { limit, offset: currentOffset, externalId: 'gustavorameh' });
+                            
+                            let response;
+                            if (blogClient && typeof blogClient.getPublishedBlogs === 'function') {
+                                // Usar SDK
+                                response = await blogClient.getPublishedBlogs({
+                                    limit: limit,
+                                    offset: currentOffset
+                                });
+                            } else {
+                                // Usar API direta (fallback)
+                                response = await fetchBlogsDirectly(limit, currentOffset);
+                            }
+
+                            console.log('Resposta da API:', response);
+
+                            if (response && response.blogs && response.blogs.length > 0) {
+                                console.log(`Encontrados ${response.blogs.length} posts`);
+                                
+                                // Remover loading
+                                if (reset && blogContainer) {
+                                    blogContainer.innerHTML = '';
+                                }
+
+                                // Renderizar posts
+                                response.blogs.forEach(post => {
+                                    if (blogContainer) {
+                                        const postElement = document.createElement('div');
+                                        postElement.innerHTML = renderPost(post);
+                                        blogContainer.appendChild(postElement);
+                                    }
+                                });
+
+                                // Atualizar paginação
+                                hasMore = response.pagination?.hasMore || false;
+                                currentOffset += limit;
+
+                                // Mostrar/esconder botão "Carregar mais"
+                                if (blogLoadMore) {
+                                    if (hasMore) {
+                                        blogLoadMore.classList.remove('hidden');
+                                    } else {
+                                        blogLoadMore.classList.add('hidden');
+                                    }
+                                }
+
+                                // Esconder mensagem vazia
+                                if (blogEmpty) {
+                                    blogEmpty.classList.add('hidden');
+                                }
+                            } else {
+                                console.log('Nenhum post encontrado');
+                                // Não há posts
+                                if (blogContainer) {
+                                    blogContainer.innerHTML = '';
+                                }
+                                if (blogEmpty) {
+                                    blogEmpty.classList.remove('hidden');
+                                }
+                                if (blogLoadMore) {
+                                    blogLoadMore.classList.add('hidden');
+                                }
+                            }
+                        } catch (error) {
+                            console.error('Erro ao carregar posts do blog:', error);
+                            console.error('Detalhes do erro:', {
+                                message: error.message,
+                                stack: error.stack,
+                                statusCode: error.statusCode,
+                                response: error.response
+                            });
+                            
+                            if (blogContainer) {
+                                let errorMessage = '';
+                                let errorTitle = 'Erro ao carregar os artigos';
+                                
+                                // Tratar erro de CORS especificamente
+                                if (isCORSError(error) || (error.isCORS && error.isLocalhost)) {
+                                    errorTitle = 'Erro de CORS (Cross-Origin)';
+                                    if (isLocalhost()) {
+                                        errorMessage = `
+                                            <p class="text-gray-600 mb-3">A seção do blog não pode ser carregada em ambiente local devido a restrições de CORS.</p>
+                                            <p class="text-gray-500 text-sm mb-4">
+                                                <strong>Isso é normal!</strong> O blog funcionará corretamente quando o site estiver publicado no domínio de produção.
+                                            </p>
+                                            <div class="bg-blue-50 border-l-4 border-primary p-4 rounded text-left max-w-md mx-auto">
+                                                <p class="text-sm text-gray-700">
+                                                    <strong>Para testar localmente:</strong><br>
+                                                    • Use um servidor com proxy CORS<br>
+                                                    • Ou teste diretamente no servidor de produção
+                                                </p>
+                                            </div>
+                                        `;
+                                    } else {
+                                        errorMessage = `
+                                            <p class="text-gray-600 mb-2">A API do blog não está permitindo requisições deste domínio.</p>
+                                            <p class="text-gray-500 text-sm">Verifique as configurações de CORS no servidor da API.</p>
+                                        `;
+                                    }
+                                } else {
+                                    errorMessage = `
+                                        <p class="text-gray-600 mb-2">${error.message || 'Tente novamente mais tarde.'}</p>
+                                        <button onclick="location.reload()" class="mt-4 text-secondary hover:underline text-sm">
+                                            Recarregar página
+                                        </button>
+                                    `;
+                                }
+                                
+                                blogContainer.innerHTML = `
+                                    <div class="col-span-full text-center py-8">
+                                        <i class="fas fa-exclamation-triangle text-3xl text-gray-300 mb-4"></i>
+                                        <h3 class="text-lg font-semibold text-primary mb-3">${errorTitle}</h3>
+                                        ${errorMessage}
+                                    </div>
+                                `;
+                            }
+                            if (blogLoadMore) {
+                                blogLoadMore.classList.add('hidden');
+                            }
+                        }
+                    }
+
+                    // Carregar posts iniciais
+                    loadPosts(true);
+
+                    // Event listener para botão "Carregar mais"
+                    if (loadMoreBtn) {
+                        loadMoreBtn.addEventListener('click', function() {
+                            loadPosts(false);
+                        });
+                    }
+                } catch (error) {
+                    console.error('Erro ao inicializar blog:', error);
+                    const container = document.getElementById('blog-posts-container');
+                    if (container) {
+                        container.innerHTML = `
+                            <div class="col-span-full text-center py-8">
+                                <i class="fas fa-exclamation-triangle text-3xl text-gray-300 mb-4"></i>
+                                <p class="text-gray-600">Erro ao inicializar o blog.</p>
+                                <p class="text-gray-500 text-sm mt-2">${error.message}</p>
+                            </div>
+                        `;
+                    }
+                }
+            });
+        });
+    </script>
+    
+    <!-- Analytics Script -->
+    <script 
+        src="https://axo-psychologist.vercel.app/analytics.js"
+        data-external-id="gustavorameh"
+        data-api-url="https://analytics.axolutions.com.br"
+    ></script>
 </body>
 
 </html>
