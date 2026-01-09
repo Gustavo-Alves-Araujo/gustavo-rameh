@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Artigo - Gustavo Rameh | Blog</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" id="page-description" content="Leia este artigo sobre saúde mental e bem-estar no blog do psicólogo Gustavo Rameh.">
+    <meta name="keywords" content="blog psicologia, saúde mental, bem-estar, artigo psicologia">
+    <meta name="author" content="Gustavo Rameh">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" id="og-url" content="https://gustavorameh.com.br/blog/post.html">
+    <meta property="og:title" id="og-title" content="Artigo - Gustavo Rameh">
+    <meta property="og:description" id="og-description" content="Leia este artigo sobre saúde mental e bem-estar.">
+    <meta property="og:image" id="og-image" content="https://gustavorameh.com.br/img/gustavo.png">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" id="twitter-url" content="https://gustavorameh.com.br/blog/post.html">
+    <meta name="twitter:title" id="twitter-title" content="Artigo - Gustavo Rameh">
+    <meta name="twitter:description" id="twitter-description" content="Leia este artigo sobre saúde mental e bem-estar.">
+    <meta name="twitter:image" id="twitter-image" content="https://gustavorameh.com.br/img/gustavo.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" id="canonical-url" href="https://gustavorameh.com.br/blog/post.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/logonova.png">
+    <link rel="apple-touch-icon" href="../img/logonova.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#c2500a',
+                        lightbg: '#f3f4f6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Estilos para o conteúdo do blog (markdown) */
+        .blog-content {
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .blog-content h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .blog-content h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.25rem;
+            font-size: 1.125rem;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 2rem;
+            font-size: 1.125rem;
+        }
+
+        .blog-content ul li {
+            list-style-type: disc;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content ol li {
+            list-style-type: decimal;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content blockquote {
+            border-left: 4px solid #c2500a;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #4b5563;
+            background: #f9fafb;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .blog-content a {
+            color: #c2500a;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .blog-content a:hover {
+            color: #9a3e08;
+        }
+
+        .blog-content img {
+            border-radius: 1rem;
+            margin: 2rem 0;
+            width: 100%;
+            height: auto;
+        }
+
+        .blog-content code {
+            background: #f3f4f6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        .blog-content pre {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .blog-content pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .blog-content strong {
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .blog-content em {
+            font-style: italic;
+        }
+
+        .blog-content hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 2px solid #e5e7eb;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-700 font-sans">
+
+    <header class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 transition-all duration-300" id="header">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3 md:py-4">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../img/logonova.png" alt="Logo Gustavo Rameh - Psicólogo Clínico e Coach" class="w-20 h-16 md:w-24 md:h-20 lg:w-32 lg:h-28 transition-transform group-hover:scale-105" width="140" height="56" decoding="async">
+                </a>
+            <nav class="hidden lg:flex items-center gap-4 xl:gap-5 font-medium text-primary text-sm xl:text-base">
+                <a href="../individual/" class="hover:text-secondary transition-colors">Terapia Individual</a>
+                <a href="../casal/" class="hover:text-secondary transition-colors">Terapia de Casal</a>
+                <a href="../grupo/" class="hover:text-secondary transition-colors">Terapia em Grupo</a>
+
+                 <div class="relative group">
+                    <button class="flex items-center hover:text-secondary transition-colors cursor-pointer py-2">
+                        Coaching <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+                        <div class="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+                            <a href="../coaching/" class="block px-6 py-3 hover:bg-blue-50 text-primary hover:text-secondary transition-colors border-b border-gray-50">Coaching Individual</a>
+                            <a href="../emagrecimento/" class="block px-6 py-3 hover:bg-blue-50 text-primary hover:text-secondary transition-colors">Emagrecimento</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="../atendimento-online/" class="hover:text-secondary transition-colors">Atendimento Online</a>
+                <a href="../sobre/" class="hover:text-secondary transition-colors">Sobre</a>
+                <a href="index.html" class="text-secondary font-bold">Blog</a>
+            </nav>
+            <div class="hidden lg:flex items-center">
+                <a href="https://wa.me/5532988178494" target="_blank" class="bg-gradient-to-r from-secondary to-orange-600 hover:from-orange-600 hover:to-secondary text-white font-semibold text-sm py-2 px-4 xl:px-5 rounded-full transition-all transform hover:scale-105 shadow-md shadow-orange-200/50 flex items-center gap-1.5 group">
+                    <i class="fab fa-whatsapp text-sm group-hover:scale-110 transition-transform"></i>
+                    <span class="hidden xl:inline">Agendar Consulta</span>
+                    <span class="xl:hidden">Agendar</span>
+                </a>
+            </div>
+             <button id="mobile-menu-btn" class="lg:hidden text-primary text-2xl p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Menu">
+                <i class="fas fa-bars" id="menu-icon"></i>
+            </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden lg:hidden pb-4 border-t border-gray-200 mt-2">
+                <nav class="flex flex-col gap-1.5 pt-3">
+                    <a href="../individual/" class="px-4 py-2.5 hover:bg-blue-50 rounded-lg transition-colors text-primary hover:text-secondary font-medium text-sm">
+                        <i class="fas fa-brain mr-2"></i> Terapia Individual
+                    </a>
+                    <a href="../casal/" class="px-4 py-2.5 hover:bg-blue-50 rounded-lg transition-colors text-primary hover:text-secondary font-medium text-sm">
+                        <i class="fas fa-user-group mr-2"></i> Terapia de Casal
+                    </a>
+                    <a href="../grupo/" class="px-4 py-2.5 hover:bg-blue-50 rounded-lg transition-colors text-primary hover:text-secondary font-medium text-sm">
+                        <i class="fas fa-users mr-2"></i> Terapia em Grupo
+                    </a>
+                    <div class="px-4 py-2.5">
+                        <button id="coaching-mobile-btn" class="w-full flex items-center justify-between text-primary hover:text-secondary font-medium text-sm">
+                            <span><i class="fas fa-chart-line mr-2"></i> Coaching</span>
+                            <i class="fas fa-chevron-down text-xs transition-transform" id="coaching-chevron"></i>
+                        </button>
+                        <div id="coaching-mobile-menu" class="hidden mt-2 ml-6 space-y-1.5">
+                            <a href="../coaching/" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-colors text-primary hover:text-secondary text-sm">
+                                <i class="fas fa-user-tie mr-2"></i> Coaching Individual
+                            </a>
+                            <a href="../emagrecimento/" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-colors text-primary hover:text-secondary text-sm">
+                                <i class="fas fa-weight mr-2"></i> Emagrecimento
+                            </a>
+                        </div>
+                    </div>
+                    <a href="../atendimento-online/" class="px-4 py-2.5 hover:bg-blue-50 rounded-lg transition-colors text-primary hover:text-secondary font-medium text-sm">
+                        <i class="fas fa-laptop-house mr-2"></i> Atendimento Online
+                    </a>
+                    <a href="../sobre/" class="px-4 py-2.5 hover:bg-blue-50 rounded-lg transition-colors text-primary hover:text-secondary font-medium text-sm">
+                        <i class="fas fa-user mr-2"></i> Sobre
+                    </a>
+                    <a href="https://wa.me/5532988178494" target="_blank"
+                        class="mx-4 mt-2 bg-gradient-to-r from-secondary to-orange-600 text-white font-semibold text-sm py-2.5 px-5 rounded-full transition-all transform hover:scale-105 shadow-md flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i> Agendar Consulta
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Loading State -->
+        <div id="loading-state" class="pt-32 pb-16">
+            <div class="container mx-auto px-4 md:px-6 lg:px-12 text-center">
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary mb-4"></div>
+                <p class="text-gray-600 text-lg">Carregando artigo...</p>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" class="hidden pt-32 pb-16">
+            <div class="container mx-auto px-4 md:px-6 lg:px-12 text-center max-w-2xl">
+                <i class="fas fa-exclamation-triangle text-5xl text-gray-300 mb-6"></i>
+                <h1 class="text-2xl font-bold text-primary mb-4">Artigo não encontrado</h1>
+                <p class="text-gray-600 mb-8">O artigo que você está procurando não existe ou foi removido.</p>
+                <a href="index.html" class="inline-flex items-center gap-2 bg-primary text-white font-semibold py-3 px-6 rounded-full hover:bg-blue-900 transition-all">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Voltar para o Blog</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Post Content -->
+        <article id="post-content" class="hidden">
+            <!-- Hero Section -->
+            <section class="pt-32 md:pt-40 pb-8 md:pb-12 bg-gradient-to-b from-blue-50 to-white">
+                <div class="container mx-auto px-4 md:px-6 lg:px-12 max-w-4xl">
+                    <!-- Breadcrumb -->
+                    <nav class="mb-6 text-sm">
+                        <a href="../index.html" class="text-gray-500 hover:text-secondary">Home</a>
+                        <span class="text-gray-400 mx-2">/</span>
+                        <a href="index.html" class="text-gray-500 hover:text-secondary">Blog</a>
+                        <span class="text-gray-400 mx-2">/</span>
+                        <span class="text-gray-700">Artigo</span>
+                    </nav>
+
+                    <!-- Category Badge -->
+                    <div id="post-category" class="mb-4"></div>
+
+                    <!-- Title -->
+                    <h1 id="post-title" class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-6"></h1>
+
+                    <!-- Meta Info -->
+                    <div class="flex flex-wrap items-center gap-4 text-gray-600 mb-8">
+                        <div class="flex items-center gap-2">
+                            <i class="far fa-calendar"></i>
+                            <span id="post-date"></span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="far fa-clock"></i>
+                            <span id="post-read-time"></span>
+                        </div>
+                        <div id="post-author" class="flex items-center gap-2"></div>
+                    </div>
+
+                    <!-- Cover Image -->
+                    <div id="post-cover-container" class="mb-8 hidden">
+                        <img id="post-cover" src="" alt="" class="w-full h-auto rounded-2xl shadow-lg">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Article Content -->
+            <section class="py-8 md:py-12 bg-white">
+                <div class="container mx-auto px-4 md:px-6 lg:px-12 max-w-4xl">
+                    <div id="post-body" class="blog-content prose prose-lg max-w-none"></div>
+
+                    <!-- Tags -->
+                    <div id="post-tags" class="mt-12 pt-8 border-t border-gray-200"></div>
+
+                    <!-- Share Buttons -->
+                    <div class="mt-8 pt-8 border-t border-gray-200">
+                        <h3 class="font-heading text-lg font-semibold text-primary mb-4">Compartilhe este artigo:</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <button id="share-whatsapp" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full transition-all">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp</span>
+                            </button>
+                            <button id="share-facebook" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition-all">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </button>
+                            <button id="share-twitter" class="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-4 rounded-full transition-all">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </button>
+                            <button id="share-copy" class="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full transition-all">
+                                <i class="fas fa-link"></i>
+                                <span id="copy-text">Copiar Link</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="py-12 md:py-16 bg-gradient-to-br from-primary to-blue-900 text-white">
+                <div class="container mx-auto px-4 md:px-6 lg:px-12 text-center max-w-3xl">
+                    <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                        Gostou deste artigo?
+                    </h2>
+                    <p class="text-blue-100 text-base md:text-lg mb-6 md:mb-8">
+                        Se você está enfrentando desafios emocionais ou busca autoconhecimento, agende uma consulta.
+                    </p>
+                    <a href="https://wa.me/5532988178494" target="_blank"
+                        class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-secondary to-orange-600 hover:from-orange-600 hover:to-secondary text-white font-bold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-xl shadow-orange-500/25 group">
+                        <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
+                        <span>Agendar Consulta</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Related Posts -->
+            <section id="related-posts-section" class="py-12 md:py-16 bg-lightbg hidden">
+                <div class="container mx-auto px-4 md:px-6 lg:px-12 max-w-6xl">
+                    <h2 class="font-heading text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+                        Artigos Relacionados
+                    </h2>
+                    <div id="related-posts-container" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-primary text-blue-100 pt-12 md:pt-16 pb-8 md:pb-10">
+        <div class="container mx-auto px-4 md:px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mb-10 md:mb-12">
+                <div class="space-y-6">
+                    <a href="../index.html" class="flex items-center gap-3 mb-6">
+                        <img src="../img/logonova.png" alt="Logo Gustavo Rameh" class="h-16 md:h-20" width="96" height="96" decoding="async" loading="lazy">
+                    </a>
+                    <p class="text-blue-200">Comprometido com seu bem-estar mental, oferecendo um espaço seguro e acolhedor para sua jornada de autoconhecimento.</p>
+                    <div class="flex gap-4 pt-4">
+                        <a href="https://www.instagram.com/gustavoramehpsi/" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 bg-blue-800 hover:bg-secondary rounded-full flex items-center justify-center transition-colors"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/psicologogustavorameh" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 bg-blue-800 hover:bg-secondary rounded-full flex items-center justify-center transition-colors"><i
+                                class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-white text-lg md:text-xl font-bold mb-4 md:mb-6">Menu Principal</h4>
+                    <ul class="space-y-2 md:space-y-3">
+                        <li><a href="../individual/" class="hover:text-secondary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-secondary"></i> Terapia Individual</a></li>
+                        <li><a href="../casal/" class="hover:text-secondary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-secondary"></i> Terapia em Casal</a></li>
+                        <li><a href="../grupo/" class="hover:text-secondary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-secondary"></i> Terapia em Grupo</a></li>
+                        <li><a href="../coaching/" class="hover:text-secondary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-secondary"></i> Coaching</a></li>
+                        <li><a href="../atendimento-online/" class="hover:text-secondary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-secondary"></i> Atendimento Online</a></li>
+                        <li><a href="../sobre/" class="hover:text-secondary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-secondary"></i> Sobre Mim</a></li>
+                        <li><a href="index.html" class="hover:text-secondary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-secondary"></i> Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-800 pt-10 text-center text-sm text-blue-300">
+                <p>Copyright © 2024 Gustavo Rameh.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5532988178494" target="_blank"
+        class="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-green-500 hover:bg-green-600 text-white p-4 md:p-5 rounded-full shadow-2xl z-50 flex items-center justify-center text-2xl md:text-3xl transition-all hover:scale-110 group">
+        <i class="fab fa-whatsapp group-hover:scale-110 transition-transform"></i>
+        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center animate-pulse">!</span>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const coachingMobileBtn = document.getElementById('coaching-mobile-btn');
+            const coachingMobileMenu = document.getElementById('coaching-mobile-menu');
+            const coachingChevron = document.getElementById('coaching-chevron');
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    menuIcon.classList.toggle('fa-bars');
+                    menuIcon.classList.toggle('fa-times');
+                });
+            }
+
+            if (coachingMobileBtn) {
+                coachingMobileBtn.addEventListener('click', function() {
+                    coachingMobileMenu.classList.toggle('hidden');
+                    coachingChevron.classList.toggle('rotate-180');
+                });
+            }
+        });
+    </script>
+
+    <!-- Marked.js para renderizar Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Blog SDK -->
+    <script src="https://axo-psychologist.vercel.app/blog-sdk.js"></script>
+
+    <!-- Blog Post Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Pegar slug/ID da URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug') || urlParams.get('id');
+
+            if (!slug) {
+                showError();
+                return;
+            }
+
+            try {
+                // Criar cliente do Blog SDK
+                const blogClient = new BlogSDK({
+                    apiUrl: 'https://blog-admin.axolutions.com.br',
+                    externalId: 'gustavorameh',
+                    cache: true
+                });
+
+                // Buscar post por slug
+                const post = await blogClient.getBlogBySlug(slug);
+
+                if (!post) {
+                    showError();
+                    return;
+                }
+
+                // Renderizar post
+                renderPost(post);
+
+                // Carregar posts relacionados
+                loadRelatedPosts(blogClient, post);
+
+                // Configurar compartilhamento
+                setupSharing(post);
+
+            } catch (error) {
+                console.error('Erro ao carregar post:', error);
+                showError();
+            }
+        });
+
+        function renderPost(post) {
+            // Atualizar SEO
+            document.title = `${post.title} - Gustavo Rameh | Blog`;
+            document.getElementById('page-title').textContent = `${post.title} - Gustavo Rameh`;
+            document.getElementById('page-description').content = post.excerpt || extractExcerpt(post.content, 160);
+
+            // Open Graph
+            document.getElementById('og-title').content = post.title;
+            document.getElementById('og-description').content = post.excerpt || extractExcerpt(post.content, 160);
+            document.getElementById('og-image').content = post.cover_image || 'https://gustavorameh.com.br/img/gustavo.png';
+            document.getElementById('og-url').content = window.location.href;
+
+            // Twitter
+            document.getElementById('twitter-title').content = post.title;
+            document.getElementById('twitter-description').content = post.excerpt || extractExcerpt(post.content, 160);
+            document.getElementById('twitter-image').content = post.cover_image || 'https://gustavorameh.com.br/img/gustavo.png';
+            document.getElementById('twitter-url').content = window.location.href;
+
+            // Canonical
+            document.getElementById('canonical-url').href = window.location.href;
+
+            // Categoria
+            if (post.category) {
+                document.getElementById('post-category').innerHTML = `
+                    <span class="inline-block text-xs font-semibold text-secondary px-3 py-1 bg-orange-50 rounded-full">
+                        ${post.category}
+                    </span>
+                `;
+            }
+
+            // Título
+            document.getElementById('post-title').textContent = post.title;
+
+            // Data e tempo de leitura
+            document.getElementById('post-date').textContent = formatDate(post.created_at);
+            document.getElementById('post-read-time').textContent = calculateReadTime(post.content);
+
+            // Autor
+            if (post.author) {
+                document.getElementById('post-author').innerHTML = `
+                    <i class="far fa-user"></i>
+                    <span>${post.author}</span>
+                `;
+            }
+
+            // Imagem de capa
+            if (post.cover_image) {
+                document.getElementById('post-cover').src = post.cover_image;
+                document.getElementById('post-cover').alt = post.title;
+                document.getElementById('post-cover-container').classList.remove('hidden');
+            }
+
+            // Conteúdo (renderizar markdown)
+            if (typeof marked !== 'undefined') {
+                document.getElementById('post-body').innerHTML = marked.parse(post.content || '');
+            } else {
+                document.getElementById('post-body').innerHTML = post.content.replace(/\n/g, '<br>');
+            }
+
+            // Tags
+            if (post.tags && post.tags.length > 0) {
+                const tagsHtml = post.tags.map(tag => `
+                    <span class="inline-block text-xs font-semibold text-primary px-3 py-1 bg-blue-50 rounded-full">
+                        #${tag}
+                    </span>
+                `).join('');
+                document.getElementById('post-tags').innerHTML = `
+                    <h3 class="font-heading text-lg font-semibold text-primary mb-3">Tags:</h3>
+                    <div class="flex flex-wrap gap-2">${tagsHtml}</div>
+                `;
+            }
+
+            // Mostrar conteúdo
+            document.getElementById('loading-state').classList.add('hidden');
+            document.getElementById('post-content').classList.remove('hidden');
+        }
+
+        async function loadRelatedPosts(blogClient, currentPost) {
+            try {
+                const response = await blogClient.getPublishedBlogs({ limit: 4, offset: 0 });
+
+                if (response && response.blogs && response.blogs.length > 0) {
+                    // Filtrar o post atual
+                    const relatedPosts = response.blogs
+                        .filter(p => p.id !== currentPost.id)
+                        .slice(0, 3);
+
+                    if (relatedPosts.length > 0) {
+                        const container = document.getElementById('related-posts-container');
+                        relatedPosts.forEach(post => {
+                            const postHtml = `
+                                <article class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all">
+                                    <a href="post.html?slug=${post.slug || post.id}">
+                                        <img src="${post.cover_image || 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80'}"
+                                             alt="${post.title}"
+                                             class="w-full h-48 object-cover rounded-t-xl">
+                                        <div class="p-6">
+                                            <h3 class="font-heading text-lg font-bold text-primary mb-2 line-clamp-2">
+                                                ${post.title}
+                                            </h3>
+                                            <p class="text-gray-600 text-sm">${formatDate(post.created_at)}</p>
+                                        </div>
+                                    </a>
+                                </article>
+                            `;
+                            container.innerHTML += postHtml;
+                        });
+                        document.getElementById('related-posts-section').classList.remove('hidden');
+                    }
+                }
+            } catch (error) {
+                console.error('Erro ao carregar posts relacionados:', error);
+            }
+        }
+
+        function setupSharing(post) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(post.title);
+            const text = encodeURIComponent(post.excerpt || 'Confira este artigo');
+
+            document.getElementById('share-whatsapp').onclick = () => {
+                window.open(`https://wa.me/?text=${title}%20${url}`, '_blank');
+            };
+
+            document.getElementById('share-facebook').onclick = () => {
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+            };
+
+            document.getElementById('share-twitter').onclick = () => {
+                window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank');
+            };
+
+            document.getElementById('share-copy').onclick = () => {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    const copyText = document.getElementById('copy-text');
+                    copyText.textContent = 'Copiado!';
+                    setTimeout(() => {
+                        copyText.textContent = 'Copiar Link';
+                    }, 2000);
+                });
+            };
+        }
+
+        function showError() {
+            document.getElementById('loading-state').classList.add('hidden');
+            document.getElementById('error-state').classList.remove('hidden');
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+
+        function calculateReadTime(content) {
+            const words = content ? content.split(/\s+/).length : 0;
+            const minutes = Math.ceil(words / 200);
+            return `${minutes} min de leitura`;
+        }
+
+        function extractExcerpt(content, maxLength) {
+            if (!content) return '';
+            const text = content.replace(/[#*\[\]()]/g, '').trim();
+            return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+        }
+    </script>
+
+    <!-- Analytics Script -->
+    <script
+        src="https://axo-psychologist.vercel.app/analytics.js"
+        data-external-id="gustavorameh"
+        data-api-url="https://analytics.axolutions.com.br"
+    ></script>
+</body>
+</html>

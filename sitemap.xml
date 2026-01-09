@@ -3,7 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    
+
     <!-- Página Principal -->
     <url>
         <loc>https://gustavorameh.com.br/</loc>
@@ -11,7 +11,7 @@
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-    
+
     <!-- Sobre Mim -->
     <url>
         <loc>https://gustavorameh.com.br/sobre/</loc>
@@ -19,7 +19,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
+
     <!-- Terapia Individual -->
     <url>
         <loc>https://gustavorameh.com.br/individual/</loc>
@@ -27,7 +27,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
     <!-- Terapia de Casal -->
     <url>
         <loc>https://gustavorameh.com.br/casal/</loc>
@@ -35,7 +35,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
     <!-- Terapia em Grupo -->
     <url>
         <loc>https://gustavorameh.com.br/grupo/</loc>
@@ -43,7 +43,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
     <!-- Coaching Individual -->
     <url>
         <loc>https://gustavorameh.com.br/coaching/</loc>
@@ -51,7 +51,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
     <!-- Programa Emagrecimento -->
     <url>
         <loc>https://gustavorameh.com.br/emagrecimento/</loc>
@@ -59,7 +59,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
     <!-- Atendimento Online -->
     <url>
         <loc>https://gustavorameh.com.br/atendimento-online/</loc>
@@ -67,6 +67,14 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
+    <!-- Blog -->
+    <url>
+        <loc>https://gustavorameh.com.br/blog/</loc>
+        <lastmod>2026-01-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 </urlset>
 
