@@ -465,7 +465,24 @@
 
     <!-- Blog Post Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', async function() {
+        // Função para aguardar o carregamento do SDK
+        function waitForBlogSDK(callback, maxAttempts = 50) {
+            let attempts = 0;
+            const checkSDK = setInterval(() => {
+                attempts++;
+                if (typeof BlogSDK !== 'undefined') {
+                    clearInterval(checkSDK);
+                    console.log('BlogSDK carregado com sucesso');
+                    callback();
+                } else if (attempts >= maxAttempts) {
+                    clearInterval(checkSDK);
+                    console.error('BlogSDK não foi carregado após várias tentativas');
+                    showError();
+                }
+            }, 100);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
             // Pegar slug/ID da URL
             const urlParams = new URLSearchParams(window.location.search);
             const slug = urlParams.get('slug') || urlParams.get('id');
@@ -475,16 +492,17 @@
                 return;
             }
 
-            try {
-                // Criar cliente do Blog SDK
-                const blogClient = new BlogSDK({
-                    apiUrl: 'https://blog-admin.axolutions.com.br/api/public',
-                    externalId: 'gustavorameh',
-                    cache: true
-                });
+            waitForBlogSDK(async function() {
+                try {
+                    // Criar cliente do Blog SDK
+                    const blogClient = new BlogSDK({
+                        apiUrl: 'https://blog-admin.axolutions.com.br/api/public',
+                        externalId: 'gustavorameh',
+                        cache: true
+                    });
 
-                // Buscar post por slug
-                const post = await blogClient.getBlogBySlug(slug);
+                // Buscar post por slug ou ID
+                const post = await blogClient.getBlogPost(slug);
 
                 if (!post) {
                     showError();
@@ -497,13 +515,14 @@
                 // Carregar posts relacionados
                 loadRelatedPosts(blogClient, post);
 
-                // Configurar compartilhamento
-                setupSharing(post);
+                    // Configurar compartilhamento
+                    setupSharing(post);
 
-            } catch (error) {
-                console.error('Erro ao carregar post:', error);
-                showError();
-            }
+                } catch (error) {
+                    console.error('Erro ao carregar post:', error);
+                    showError();
+                }
+            });
         });
 
         function renderPost(post) {

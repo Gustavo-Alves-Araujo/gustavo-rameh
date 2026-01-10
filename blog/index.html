@@ -296,13 +296,44 @@
 
     <!-- Blog Script -->
     <script>
+        // Função para aguardar o carregamento do SDK
+        function waitForBlogSDK(callback, maxAttempts = 50) {
+            let attempts = 0;
+            const checkSDK = setInterval(() => {
+                attempts++;
+                if (typeof BlogSDK !== 'undefined') {
+                    clearInterval(checkSDK);
+                    console.log('BlogSDK carregado com sucesso');
+                    callback();
+                } else if (attempts >= maxAttempts) {
+                    clearInterval(checkSDK);
+                    console.error('BlogSDK não foi carregado após várias tentativas');
+                    const container = document.getElementById('blog-posts-container');
+                    if (container) {
+                        container.innerHTML = `
+                            <div class="col-span-full text-center py-12">
+                                <i class="fas fa-exclamation-triangle text-4xl text-gray-300 mb-4"></i>
+                                <h3 class="text-lg font-semibold text-primary mb-3">Erro ao carregar Blog SDK</h3>
+                                <p class="text-gray-600 mb-4">Verifique sua conexão e tente novamente.</p>
+                                <button onclick="location.reload()" class="text-secondary hover:underline">
+                                    Recarregar página
+                                </button>
+                            </div>
+                        `;
+                    }
+                }
+            }, 100);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Criar cliente do Blog SDK
-            const blogClient = new BlogSDK({
-                apiUrl: 'https://blog-admin.axolutions.com.br/api/public',
-                externalId: 'gustavorameh',
-                cache: true
-            });
+            waitForBlogSDK(function() {
+                try {
+                    // Criar cliente do Blog SDK
+                    const blogClient = new BlogSDK({
+                        apiUrl: 'https://blog-admin.axolutions.com.br/api/public',
+                        externalId: 'gustavorameh',
+                        cache: true
+                    });
 
             let currentOffset = 0;
             const limit = 12; // Mais posts na página de listagem
@@ -464,15 +495,32 @@
                 }
             }
 
-            // Carregar posts iniciais
-            loadPosts(true);
+                    // Carregar posts iniciais
+                    loadPosts(true);
 
-            // Event listener para botão "Carregar mais"
-            if (loadMoreBtn) {
-                loadMoreBtn.addEventListener('click', function() {
-                    loadPosts(false);
-                });
-            }
+                    // Event listener para botão "Carregar mais"
+                    if (loadMoreBtn) {
+                        loadMoreBtn.addEventListener('click', function() {
+                            loadPosts(false);
+                        });
+                    }
+                } catch (error) {
+                    console.error('Erro ao inicializar blog:', error);
+                    const container = document.getElementById('blog-posts-container');
+                    if (container) {
+                        container.innerHTML = `
+                            <div class="col-span-full text-center py-12">
+                                <i class="fas fa-exclamation-triangle text-4xl text-gray-300 mb-4"></i>
+                                <h3 class="text-lg font-semibold text-primary mb-3">Erro ao inicializar o blog</h3>
+                                <p class="text-gray-600 mb-4">${error.message || 'Tente novamente mais tarde.'}</p>
+                                <button onclick="location.reload()" class="text-secondary hover:underline">
+                                    Recarregar página
+                                </button>
+                            </div>
+                        `;
+                    }
+                }
+            });
         });
     </script>
 
