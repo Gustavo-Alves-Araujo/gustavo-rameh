@@ -1266,10 +1266,8 @@
                     }
 
                     function getPostUrl(post, baseUrl) {
-                        if (typeof BlogSDKUtils !== 'undefined' && BlogSDKUtils.getPostUrl) {
-                            return BlogSDKUtils.getPostUrl(post, baseUrl);
-                        }
-                        // Formato: blog/post.html?slug=slug-do-post
+                        // SEMPRE usar o formato correto: blog/post.html?slug=slug-do-post
+                        // NÃO usar BlogSDKUtils.getPostUrl pois ele gera URL incorreta
                         return `blog/post.html?slug=${post.slug || post.id}`;
                     }
 
