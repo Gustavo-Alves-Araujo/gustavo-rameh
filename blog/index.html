@@ -481,14 +481,60 @@
                     }
                 } catch (error) {
                     console.error('Erro ao carregar posts:', error);
-                    blogContainer.innerHTML = `
-                        <div class="col-span-full text-center py-12">
-                            <i class="fas fa-exclamation-triangle text-4xl text-gray-300 mb-4"></i>
-                            <h3 class="text-lg font-semibold text-primary mb-3">Erro ao carregar artigos</h3>
-                            <p class="text-gray-600 mb-4">Tente novamente mais tarde.</p>
+                    console.error('Detalhes do erro:', {
+                        message: error.message,
+                        statusCode: error.statusCode,
+                        response: error.response
+                    });
+                    
+                    let errorTitle = 'Erro ao carregar artigos';
+                    let errorMessage = '';
+                    
+                    // Tratar erro 404 - User not found
+                    const isUserNotFound = error.statusCode === 404 && 
+                        (error.message?.includes('User not found') || 
+                         error.response?.error?.includes('User not found') ||
+                         error.message?.includes('404'));
+                    
+                    if (isUserNotFound) {
+                        errorTitle = 'Configuração do Blog';
+                        errorMessage = `
+                            <p class="text-gray-600 mb-3">O <strong>external_id</strong> não foi encontrado na plataforma.</p>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded text-left max-w-md mx-auto mb-4">
+                                <p class="text-sm text-gray-700 mb-2">
+                                    <strong>Possíveis causas:</strong>
+                                </p>
+                                <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
+                                    <li>O external_id "gustavorameh" não está cadastrado no admin</li>
+                                    <li>O ID está incorreto ou foi alterado</li>
+                                    <li>O usuário ainda não foi configurado na plataforma</li>
+                                </ul>
+                            </div>
+                            <p class="text-gray-500 text-sm mb-4">
+                                <strong>Solução:</strong> Verifique no painel admin da plataforma se o external_id está correto e se o usuário está cadastrado.
+                            </p>
+                            <div class="bg-blue-50 border-l-4 border-primary p-4 rounded text-left max-w-md mx-auto">
+                                <p class="text-sm text-gray-700">
+                                    <strong>External ID atual:</strong><br>
+                                    <code class="bg-white px-2 py-1 rounded text-xs">gustavorameh</code>
+                                </p>
+                            </div>
+                        `;
+                    } else {
+                        errorMessage = `
+                            <p class="text-gray-600 mb-2">${error.message || 'Tente novamente mais tarde.'}</p>
+                            <p class="text-gray-500 text-xs mb-4">Status: ${error.statusCode || 'Desconhecido'}</p>
                             <button onclick="location.reload()" class="text-secondary hover:underline">
                                 Recarregar página
                             </button>
+                        `;
+                    }
+                    
+                    blogContainer.innerHTML = `
+                        <div class="col-span-full text-center py-12">
+                            <i class="fas fa-exclamation-triangle text-4xl text-gray-300 mb-4"></i>
+                            <h3 class="text-lg font-semibold text-primary mb-3">${errorTitle}</h3>
+                            ${errorMessage}
                         </div>
                     `;
                     blogLoadMore.classList.add('hidden');
