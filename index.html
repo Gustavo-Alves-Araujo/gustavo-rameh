@@ -1269,7 +1269,7 @@
                         if (typeof BlogSDKUtils !== 'undefined' && BlogSDKUtils.getPostUrl) {
                             return BlogSDKUtils.getPostUrl(post, baseUrl);
                         }
-                        // Formato: /blog/post.html?slug=slug-do-post
+                        // Formato: blog/post.html?slug=slug-do-post
                         return `blog/post.html?slug=${post.slug || post.id}`;
                     }
 
