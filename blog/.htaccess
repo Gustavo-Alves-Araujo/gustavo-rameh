@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /blog/
+
+# Se não for um arquivo ou diretório existente
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirecionar /blog/slug para /blog/post.html?slug=slug
+RewriteRule ^([^/]+)/?$ post.html?slug=$1 [L,QSA]

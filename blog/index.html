@@ -384,11 +384,11 @@
                 const formattedDate = formatDate(post.created_at);
                 const readTime = calculateReadTime(post.content);
                 const excerpt = post.excerpt || extractExcerpt(post.content, 150);
-                const postUrl = `post.html?slug=${post.slug || post.id}`;
+                const postUrl = `${post.slug || post.id}`;
 
                 return `
                     <article class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-1">
-                        <a href="${postUrl}" class="block">
+                        <a href="${postUrl}" class="block">`
                             <div class="relative overflow-hidden h-56 bg-gray-200">
                                 <img src="${coverImage}"
                                      alt="${post.title}"

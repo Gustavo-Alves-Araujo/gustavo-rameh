@@ -1,0 +1,5 @@
+# Habilitar Rewrite Engine
+RewriteEngine On
+
+# Garantir que o .htaccess no /blog/ seja processado
+RewriteOptions Inherit
