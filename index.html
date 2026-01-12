@@ -1270,7 +1270,7 @@
                             return BlogSDKUtils.getPostUrl(post, baseUrl);
                         }
                         // Formato: /blog/post.html?slug=slug-do-post
-                        return `${baseUrl}/post.html?slug=${post.slug || post.id}`;
+                        return `blog/post.html?slug=${post.slug || post.id}`;
                     }
 
                     // Função para renderizar um post
@@ -1279,7 +1279,7 @@
                         const formattedDate = formatDate(post.created_at);
                         const readTime = calculateReadTime(post.content);
                         const excerpt = post.excerpt || extractExcerpt(post.content, 120);
-                        const postUrl = getPostUrl(post, '/blog');
+                        const postUrl = getPostUrl(post);
 
                 return `
                     <article class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group hover:-translate-y-1">

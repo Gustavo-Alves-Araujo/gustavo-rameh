@@ -484,22 +484,8 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             // Pegar slug/ID da URL
-            let slug = null;
-            
-            // Primeiro tenta pegar da query string (para compatibilidade com URLs antigas)
             const urlParams = new URLSearchParams(window.location.search);
-            slug = urlParams.get('slug') || urlParams.get('id');
-            
-            // Se não encontrar na query string, tenta pegar do pathname
-            if (!slug) {
-                const pathname = window.location.pathname;
-                const pathParts = pathname.split('/').filter(part => part);
-                // Pega a última parte do caminho que não seja 'post.html'
-                slug = pathParts[pathParts.length - 1];
-                if (slug === 'post.html') {
-                    slug = null;
-                }
-            }
+            const slug = urlParams.get('slug') || urlParams.get('id');
 
             if (!slug) {
                 showError();
@@ -636,7 +622,7 @@
                         relatedPosts.forEach(post => {
                             const postHtml = `
                                 <article class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all">
-                                    <a href="${post.slug || post.id}">
+                                    <a href="post.html?slug=${post.slug || post.id}">
                                         <img src="${post.cover_image || 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80'}"
                                              alt="${post.title}"
                                              class="w-full h-48 object-cover rounded-t-xl">
