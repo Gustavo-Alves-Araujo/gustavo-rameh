@@ -1,54 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FDE48LV2PG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-FDE48LV2PG');
-        gtag('config', 'AW-348958217');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programa Menos é Mais - Emagrecimento com Psicoterapia | Gustavo Rameh</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Programa Menos é Mais - Emagrecimento sustentável com psicoterapia cognitivo-comportamental. Diga adeus ao efeito sanfona com Gustavo Rameh.">
-    <meta name="keywords" content="emagrecimento, emagrecer, perda de peso, psicologia emagrecimento, efeito sanfona, programa emagrecimento">
-    <meta name="author" content="Gustavo Rameh">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gustavorameh.com.br/emagrecimento/">
-    <meta property="og:title" content="Programa Menos é Mais - Emagrecimento com Psicoterapia | Gustavo Rameh">
-    <meta property="og:description" content="Emagrecimento sustentável com psicoterapia. Diga adeus ao efeito sanfona.">
-    <meta property="og:image" content="https://gustavorameh.com.br/img/gustavo.png">
-    <meta property="og:locale" content="pt_BR">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://gustavorameh.com.br/emagrecimento/">
-    <meta name="twitter:title" content="Programa Menos é Mais - Emagrecimento com Psicoterapia">
-    <meta name="twitter:description" content="Emagrecimento sustentável com psicoterapia.">
-    <meta name="twitter:image" content="https://gustavorameh.com.br/img/gustavo.png">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://gustavorameh.com.br/emagrecimento/">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../img/logonova.png">
-    <link rel="apple-touch-icon" href="../img/logonova.png">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = { theme: { extend: { colors: { primary: '#1e293b', secondary: '#3b82f6', lightbg: '#f8fafc', fresh: '#10b981' }, fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Poppins', 'sans-serif'] } } } }
-    </script>
-    <style id="hamburger-styles">
+#!/usr/bin/env python3
+"""
+Reverts subpages to inline header/footer HTML (no components.js dependency).
+- Keeps index.html with the component approach.
+- Restores inline headerWrapper, hamburger CSS, footer, and hamburger JS for all subpages.
+- Uses the NEW design: 3-bar hamburger, no phone number in nav.
+"""
+import os
+
+BASE_DIR = r'c:\Users\crist\Desktop\projeto-rameh\gustavo-rameh'
+
+SUBPAGES = [
+    'sobre/index.html',
+    'atendimento-online/index.html',
+    'individual/index.html',
+    'casal/index.html',
+    'grupo/index.html',
+    'coaching/index.html',
+    'emagrecimento/index.html',
+    'blog/index.html',
+]
+
+HAMBURGER_STYLE = """    <style id="hamburger-styles">
         @keyframes shine { 100% { left: 125%; } }
         .animate-shine { animation: shine 0.8s ease; }
         .mobile-menu-open #navMenu {
@@ -75,11 +47,9 @@
         .mobile-menu-open #mobileMenuBtn .ham-bar:nth-child(3) {
             transform: translateY(-8px) rotate(-45deg);
         }
-    </style>
-</head>
-<body class="bg-white text-gray-700 font-sans">
+    </style>"""
 
-            <div id="headerWrapper" class="fixed top-4 inset-x-0 z-50 px-4 sm:px-6 pointer-events-none">
+HEADER_HTML = """    <div id="headerWrapper" class="fixed top-4 inset-x-0 z-50 px-4 sm:px-6 pointer-events-none">
         <div class="relative max-w-6xl mx-auto bg-white/80 backdrop-blur-xl rounded-[2rem] border border-white/60 shadow-[0_8px_32px_-4px_rgba(0,0,0,0.08)] ring-1 ring-black/5 pointer-events-auto">
             <nav class="flex items-center justify-between px-6 py-3">
                 <a href="../" class="flex items-center gap-3 group shrink-0">
@@ -89,12 +59,6 @@
                     <span class="hidden sm:block font-bold text-slate-800 tracking-tight text-lg" style="font-family: 'Poppins', sans-serif;">Gustavo Rameh</span>
                 </a>
                 <ul class="hidden lg:flex items-center gap-1">
-                    <li>
-                        <a href="../" class="relative group px-5 py-2.5 text-sm font-medium text-slate-600 transition-all duration-300 rounded-full hover:bg-slate-50" style="font-family: 'Inter', sans-serif;">
-                            <span class="relative z-10">Início</span>
-                            <span class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-blue-500 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-125"></span>
-                        </a>
-                    </li>
                     <li>
                         <a href="../sobre/" class="relative group px-5 py-2.5 text-sm font-medium text-slate-600 transition-all duration-300 rounded-full hover:bg-slate-50" style="font-family: 'Inter', sans-serif;">
                             <span class="relative z-10">Sobre</span>
@@ -133,11 +97,6 @@
                 <div class="bg-white/95 backdrop-blur-2xl border border-white/60 rounded-[2rem] p-6 shadow-[0_20px_40px_-5px_rgba(0,0,0,0.1)] ring-1 ring-black/5">
                     <ul class="flex flex-col gap-1">
                         <li>
-                            <a href="../" class="flex items-center justify-between p-4 rounded-2xl text-base font-semibold text-slate-700 transition-all hover:bg-slate-50 hover:pl-6 active:scale-[0.98]" style="font-family: 'Inter', sans-serif;">
-                                Início <i class="fas fa-chevron-right text-xs opacity-30"></i>
-                            </a>
-                        </li>
-                        <li>
                             <a href="../sobre/" class="flex items-center justify-between p-4 rounded-2xl text-base font-semibold text-slate-700 transition-all hover:bg-slate-50 hover:pl-6 active:scale-[0.98]" style="font-family: 'Inter', sans-serif;">
                                 Sobre <i class="fas fa-chevron-right text-xs opacity-30"></i>
                             </a>
@@ -170,85 +129,15 @@
                 </div>
             </div>
         </div>
-    </div>
-    <section class="relative pt-36 pb-24 overflow-hidden">
-        <div class="absolute inset-0" style="background: linear-gradient(135deg, #0f172a 0%%, #1e3a8a 55%%, #2563eb 100%%);"></div>
-        <div class="absolute inset-0" style="background: radial-gradient(ellipse at 70%% 50%%, rgba(99,102,241,0.25), transparent 70%%);"></div>
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <span class="inline-block py-1 px-4 rounded-full text-xs font-black uppercase tracking-widest mb-6" style="background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); font-family: 'Inter', sans-serif;">Saúde e Bem-Estar</span>
-            <h1 class="text-5xl md:text-6xl font-black text-white mb-6 tracking-tight leading-tight" style="font-family: 'Poppins', sans-serif;">Emagrecimento<br><span style="color:#93c5fd;">com Saúde</span></h1>
-            <p class="text-lg text-white/75 max-w-xl mx-auto mb-10" style="font-family: 'Inter', sans-serif;">Um programa integrado que une saúde emocional e física para resultados duráveis.</p>
-            <a href="https://wa.me/5532988178494" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-base transition-all hover:-translate-y-1" style="background-color: #3b82f6; box-shadow: 0 8px 24px rgba(59,130,246,0.4); font-family: 'Poppins', sans-serif;">
-                <i class="fab fa-whatsapp text-lg"></i> Agendar Consulta
-            </a>
-        </div>
-    </section>
+    </div>"""
 
-
-    <section id="detalhes" class="py-20 bg-white">
-        <div class="container mx-auto px-6 md:px-12">
-            <h2 class="font-heading text-3xl font-bold text-center text-primary mb-12">Formatos do Programa</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="border rounded-2xl p-8 hover:shadow-xl transition relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-2 h-full bg-gray-200 group-hover:bg-primary transition-colors"></div>
-                    <h3 class="font-bold text-xl text-primary mb-4">Atendimento Individual</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between border-b pb-2">
-                            <span class="text-gray-500">Duração Total</span>
-                            <span class="font-bold text-gray-800">10 a 12 Sessões</span>
-                        </div>
-                        <div class="flex justify-between border-b pb-2">
-                            <span class="text-gray-500">Frequência</span>
-                            <span class="font-bold text-gray-800">1x por semana</span>
-                        </div>
-                        <div class="flex justify-between border-b pb-2">
-                            <span class="text-gray-500">Tempo por sessão</span>
-                            <span class="font-bold text-gray-800">50 minutos</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="border rounded-2xl p-8 hover:shadow-xl transition relative overflow-hidden group">
-                     <div class="absolute top-0 left-0 w-2 h-full bg-gray-200 group-hover:bg-fresh transition-colors"></div>
-                    <h3 class="font-bold text-xl text-primary mb-4">Atendimento em Grupo</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between border-b pb-2">
-                            <span class="text-gray-500">Duração Total</span>
-                            <span class="font-bold text-gray-800">12 Sessões</span>
-                        </div>
-                        <div class="flex justify-between border-b pb-2">
-                            <span class="text-gray-500">Tamanho</span>
-                            <span class="font-bold text-gray-800">6 a 10 pessoas</span>
-                        </div>
-                        <div class="flex justify-between border-b pb-2">
-                            <span class="text-gray-500">Tempo por sessão</span>
-                            <span class="font-bold text-gray-800">60 a 90 minutos</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12 text-center bg-green-50 rounded-2xl p-8 max-w-3xl mx-auto">
-                <h4 class="font-bold text-gray-800 mb-2">Compromisso Necessário</h4>
-                <p class="text-gray-600">A ação parte de você! Eu estarei aqui para auxiliá-lo(a), mas é preciso que o participante esteja totalmente engajado e focado no que deseja.</p>
-                <div class="mt-6">
-                    <a href="https://wa.me/5532988178494" target="_blank" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white font-bold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-green-200/50 group">
-                        <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
-                        <span>Quero participar do Menos é Mais</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-            <footer class="bg-slate-900 text-white pt-14 pb-10">
+FOOTER_HTML = """    <footer class="bg-slate-900 text-white pt-14 pb-10">
         <div class="max-w-5xl mx-auto px-6 text-center">
             <div class="flex justify-center mb-5">
                 <img src="../img/logonova.png" alt="Gustavo Rameh" class="h-16 w-16 rounded-full object-cover border-2 border-white/20">
             </div>
             <h3 class="font-bold text-xl mb-1" style="font-family: 'Poppins', sans-serif;">Gustavo Rameh</h3>
-            <p class="text-slate-400 text-sm mb-6">Psicólogo Clínico &middot; CRP 04/43395</p>
+            <p class="text-slate-400 text-sm mb-6">Psic\u00f3logo Cl\u00ednico &middot; CRP 04/43395</p>
             <div class="flex justify-center gap-3 mb-8">
                 <a href="https://www.instagram.com/gustavoramehpsi/" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors text-sm" title="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://wa.me/5532988178494" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors text-sm" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -259,25 +148,9 @@
                 <p class="text-slate-500 text-sm">&copy; 2025 Gustavo Rameh &middot; Todos os direitos reservados.</p>
             </div>
         </div>
-    </footer>
-    
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Programa de Emagrecimento Menos é Mais",
-        "provider": {
-            "@type": "Person",
-            "name": "Gustavo Rameh",
-            "jobTitle": "Psicólogo Clínico"
-        },
-        "description": "Emagrecimento sustentável com psicoterapia cognitivo-comportamental",
-        "url": "https://gustavorameh.com.br/emagrecimento/",
-        "areaServed": "BR"
-    }
-    </script>
-        <script>
+    </footer>"""
+
+HAMBURGER_JS = """    <script>
     document.addEventListener('DOMContentLoaded', function() {
         var wrapper = document.getElementById('headerWrapper');
         var btn = document.getElementById('mobileMenuBtn');
@@ -303,6 +176,43 @@
             }
         }, { passive: true });
     });
-    </script>
-</body>
-</html>
+    </script>"""
+
+print('Reverting subpages to inline header/footer...')
+for page in SUBPAGES:
+    full_path = os.path.join(BASE_DIR, page.replace('/', os.sep))
+    with open(full_path, 'r', encoding='utf-8') as f:
+        html = f.read()
+    changes = []
+
+    # 1. Add hamburger-styles before </head>
+    if 'hamburger-styles' not in html:
+        html = html.replace('</head>', HAMBURGER_STYLE + '\n</head>', 1)
+        changes.append('added hamburger-styles')
+
+    # 2. Replace site-header placeholder with inline header
+    if '<div id="site-header"></div>' in html:
+        html = html.replace('<div id="site-header"></div>', HEADER_HTML, 1)
+        changes.append('restored inline header')
+    else:
+        print(f'  WARNING: site-header not found in {page}')
+
+    # 3. Replace site-footer placeholder with inline footer
+    if '<div id="site-footer"></div>' in html:
+        html = html.replace('<div id="site-footer"></div>', FOOTER_HTML, 1)
+        changes.append('restored inline footer')
+    else:
+        print(f'  WARNING: site-footer not found in {page}')
+
+    # 4. Replace components.js script tag with inline hamburger JS
+    if '<script src="../js/components.js"></script>' in html:
+        html = html.replace('<script src="../js/components.js"></script>', HAMBURGER_JS, 1)
+        changes.append('restored inline JS')
+    else:
+        print(f'  WARNING: components.js script not found in {page}')
+
+    with open(full_path, 'w', encoding='utf-8') as f:
+        f.write(html)
+    print(f'  OK  {page}: {", ".join(changes) if changes else "no changes"}')
+
+print('\nDone! index.html still uses components.js.')
